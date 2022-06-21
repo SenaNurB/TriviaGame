@@ -7,6 +7,8 @@ import Button from '../components/Button';
 import TriviaCategories from '../utils/TriviaCategories';
 import Difficulty from '../utils/Difficulty';
 
+import {Colors} from '../utils/Colors';
+
 const HomeScreen = ({navigation}) => {
   const [difficulty, setDifficulty] = useState('easy');
   const [category, setCategory] = useState(9);
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
   },
   area: {
     flex: 1,
-    backgroundColor: '#51557E',
+    backgroundColor: Colors.background,
   },
   header: {
     fontSize: 24,

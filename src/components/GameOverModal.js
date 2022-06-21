@@ -1,5 +1,8 @@
-import {StyleSheet, Text, View, Modal, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Modal} from 'react-native';
 import React from 'react';
+
+import Button from './Button';
+import Text from './Text';
 
 import {Colors} from '../utils/Colors';
 
@@ -11,32 +14,13 @@ const GameOverModal = ({
 }) => {
   return (
     <Modal animationType="slide" transparent={true} visible={showGameOverModal}>
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: Colors.primary,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <View
-          style={{
-            backgroundColor: Colors.white,
-            width: '90%',
-            borderRadius: 20,
-            padding: 20,
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 30, fontWeight: 'bold'}}>
+      <View style={styles.container}>
+        <View style={styles.headContainer}>
+          <Text style={styles.header}>
             {score > questionArray.length / 2 ? 'Congratulations!' : 'Oops!'}
           </Text>
-
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              marginVertical: 20,
-            }}>
+          <Text color="black">Your Point : {score * 15}</Text>
+          <View style={styles.scoreContainer}>
             <Text
               style={{
                 fontSize: 30,
@@ -47,32 +31,15 @@ const GameOverModal = ({
               }}>
               {score}
             </Text>
-            <Text
-              style={{
-                fontSize: 20,
-                color: Colors.black,
-              }}>
+            <Text size={20} color="black">
               / {questionArray.length}
             </Text>
           </View>
-          {/* Retry Quiz button */}
-          <TouchableOpacity
+
+          <Button
+            title="Retry Quiz"
             onPress={() => navigation.navigate('Home')}
-            style={{
-              backgroundColor: Colors.accent,
-              padding: 20,
-              width: '100%',
-              borderRadius: 20,
-            }}>
-            <Text
-              style={{
-                textAlign: 'center',
-                color: Colors.white,
-                fontSize: 20,
-              }}>
-              Retry Quiz
-            </Text>
-          </TouchableOpacity>
+          />
         </View>
       </View>
     </Modal>
@@ -81,4 +48,29 @@ const GameOverModal = ({
 
 export default GameOverModal;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headContainer: {
+    backgroundColor: Colors.white,
+    width: '90%',
+    borderRadius: 20,
+    padding: 20,
+    alignItems: 'center',
+  },
+  scoreContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginVertical: 20,
+  },
+  header: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+});

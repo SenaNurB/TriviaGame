@@ -1,5 +1,7 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import React from 'react';
+
+import Text from './Text';
 
 import {Colors} from '../utils/Colors';
 
@@ -37,7 +39,9 @@ const Option = ({
         paddingHorizontal: 20,
         marginVertical: 10,
       }}>
-      <Text style={{fontSize: 20, color: Colors.white}}>{data}</Text>
+      <Text size={20} color={Colors.white}>
+        {data}
+      </Text>
     </TouchableOpacity>
   );
 };
