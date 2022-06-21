@@ -4,6 +4,8 @@ import useInterval from '@use-it/interval';
 
 import Text from './Text';
 
+import {Colors} from '../utils/Colors';
+
 const Countdown = ({timeout = 1000, onComplete, currentQuestionIndex}) => {
   const [num, setNum] = useState(15);
   const [isRunning, setIsRunning] = useState(true);
@@ -31,7 +33,7 @@ const Countdown = ({timeout = 1000, onComplete, currentQuestionIndex}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
-        <Text color="white" align="center">
+        <Text color={Colors.white} align="center">
           {seconds}
         </Text>
       </View>
@@ -41,7 +43,6 @@ const Countdown = ({timeout = 1000, onComplete, currentQuestionIndex}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.25,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 70,
@@ -50,9 +51,9 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-    borderWidth: 1,
-    borderColor: 'green',
-    backgroundColor: 'black',
+    borderWidth: 4,
+    borderColor: Colors.secondary,
+    backgroundColor: Colors.black,
     justifyContent: 'center',
     alignItems: 'center',
   },

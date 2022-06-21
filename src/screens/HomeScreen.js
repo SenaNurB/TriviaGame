@@ -1,8 +1,9 @@
-import {StyleSheet, Text, SafeAreaView, View} from 'react-native';
+import {StyleSheet, SafeAreaView, View} from 'react-native';
 import React, {useState} from 'react';
 
 import Picker from '../components/Picker';
 import Button from '../components/Button';
+import Text from '../components/Text';
 
 import TriviaCategories from '../utils/TriviaCategories';
 import Difficulty from '../utils/Difficulty';
@@ -24,17 +25,28 @@ const HomeScreen = ({navigation}) => {
     <SafeAreaView style={styles.area}>
       <View style={styles.container}>
         <Text style={styles.header}>Trivia Game</Text>
+        <View style={styles.difficulty}>
+          <Text>Select Difficulty</Text>
+        </View>
+
         <Picker
           value={difficulty}
           setValue={setDifficulty}
           items={Difficulty}
+          text=""
         />
+        <View style={styles.category}>
+          <Text>Select Category</Text>
+        </View>
+
         <Picker
           value={category}
           setValue={setCategory}
           items={TriviaCategories}
         />
-        <Button title="Start" onPress={handleClick} />
+        <View style={styles.button}>
+          <Button title="Start" onPress={handleClick} />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -53,9 +65,25 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   header: {
-    fontSize: 24,
+    fontSize: 42,
     fontWeight: 'bold',
-    color: 'white',
+    color: Colors.white,
     marginVertical: 50,
+  },
+  difficulty: {
+    width: '100%',
+    alignItems: 'flex-start',
+    paddingLeft: 8,
+  },
+  category: {
+    width: '100%',
+    alignItems: 'flex-start',
+    marginTop: 20,
+    paddingLeft: 8,
+  },
+  button: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 24,
   },
 });

@@ -26,24 +26,25 @@ export default Question;
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 40,
+    marginVertical: 16,
   },
   questionCounter: {
     flexDirection: 'row',
     alignItems: 'flex-end',
   },
   counterText: {
-    color: Colors.white,
+    color: Colors.background,
     fontSize: 20,
     opacity: 0.6,
     marginRight: 2,
   },
   questionText: {
-    color: Colors.white,
+    color: Colors.black,
     fontSize: 30,
+    textAlign: 'center',
   },
   quizLength: {
-    color: Colors.white,
+    color: Colors.background,
     fontSize: 18,
     opacity: 0.6,
   },

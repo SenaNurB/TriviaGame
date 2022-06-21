@@ -1,30 +1,25 @@
 import {StyleSheet, ImageBackground, View} from 'react-native';
 import React, {useEffect} from 'react';
 
-import Text from '../components/Text';
-
-import {Colors} from '../utils/Colors';
-
-const SplashScreen = ({navigation}) => {
+const SecondSplash = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('SecondSplash');
+      navigation.replace('Home');
     }, 2000);
   }, [navigation]);
 
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('../assets/splash.jpeg')}
+        source={require('../assets/splash(1).jpeg')}
         resizeMode="cover"
-        style={styles.image}>
-        <Text style={styles.text}>Welcome!</Text>
-      </ImageBackground>
+        style={styles.image}
+      />
     </View>
   );
 };
 
-export default SplashScreen;
+export default SecondSplash;
 
 const styles = StyleSheet.create({
   container: {
@@ -34,11 +29,5 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
-  },
-  text: {
-    color: Colors.white,
-    fontWeight: 'bold',
-    fontSize: 36,
-    marginTop: '50%',
   },
 });

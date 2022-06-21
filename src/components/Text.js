@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text as RNText} from '@rneui/themed';
 
+import {Colors} from '../utils/Colors';
+
 const Text = ({
   color,
   size,
@@ -15,7 +17,7 @@ const Text = ({
 }) => {
   const styles = {
     fontSize: size ? size : 14,
-    color: color ? color : 'white',
+    color: color ? color : Colors.white,
     ...(italic && {fontStyle: 'italic'}),
     ...(weight && {fontWeight: weight}),
     ...(align && {textAlign: align}),

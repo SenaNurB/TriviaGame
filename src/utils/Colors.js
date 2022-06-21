@@ -1,6 +1,6 @@
 export const Colors = {
   primary: '#252c4a',
-  secondary: '#20CE97',
+  secondary: '#774360',
   accent: '#3498db',
 
   success: '#00C851',
@@ -8,5 +8,5 @@ export const Colors = {
 
   black: '#171717',
   white: '#FFFFFF',
-  background: '#000000',
+  background: '#2A2B32',
 };

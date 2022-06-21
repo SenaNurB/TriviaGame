@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import SplashScreen from '../screens/SplashScreen';
 import QuizScreen from '../screens/QuizScreen';
+import SecondSplash from '../screens/SecondSplash';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ const AppNavigator = () => {
           headerShown: false,
         }}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="SecondSplash" component={SecondSplash} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Quiz" component={QuizScreen} />
       </Stack.Navigator>

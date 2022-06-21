@@ -24,13 +24,13 @@ const Option = ({
             ? Colors.success
             : data == currentOptionSelected
             ? Colors.error
-            : Colors.secondary + '40',
+            : Colors.secondary + '90',
         backgroundColor:
           data == correctOption
             ? Colors.success + '20'
             : data == currentOptionSelected
             ? Colors.error + '20'
-            : Colors.secondary + '20',
+            : Colors.secondary + '60',
         height: 60,
         borderRadius: 20,
         flexDirection: 'row',

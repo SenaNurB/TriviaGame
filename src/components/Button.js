@@ -2,6 +2,8 @@ import {StyleSheet} from 'react-native';
 import React from 'react';
 import {Button as RNButton} from '@rneui/base';
 
+import {Colors} from '../utils/Colors';
+
 const Button = ({isDisabled, isLoading, onPress, title}) => {
   return (
     <RNButton
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     width: '70%',
   },
   button: {
-    backgroundColor: 'green',
+    backgroundColor: Colors.secondary,
     borderRadius: 8,
     paddingVertical: 10,
   },
@@ -37,10 +39,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   disabled: {
-    backgroundColor: 'black',
+    backgroundColor: Colors.black,
   },
   disabledTitle: {
-    color: 'white',
+    color: Colors.white,
     fontSize: 24,
   },
 });

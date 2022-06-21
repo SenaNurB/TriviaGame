@@ -19,7 +19,9 @@ const GameOverModal = ({
           <Text style={styles.header}>
             {score > questionArray.length / 2 ? 'Congratulations!' : 'Oops!'}
           </Text>
-          <Text color="black">Your Point : {score * 15}</Text>
+          <Text color={Colors.black} size={20}>
+            Your Point : {score * 15}
+          </Text>
           <View style={styles.scoreContainer}>
             <Text
               style={{
@@ -51,7 +53,7 @@ export default GameOverModal;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -66,11 +68,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginVertical: 20,
+    marginTop: 8,
+    marginBottom: 16,
   },
   header: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: 'black',
+    color: Colors.black,
+    marginBottom: 8,
   },
 });

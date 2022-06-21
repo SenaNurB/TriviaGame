@@ -1,4 +1,4 @@
-import {StyleSheet, View, SafeAreaView} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
 
 import Loading from '../components/Loading';
@@ -53,15 +53,13 @@ const QuizScreen = ({route, navigation}) => {
     }
 
     if (currentQuestionIndex === questionArray.length - 1) {
-      // Last Question
-      // Show Score Modal
       setShowGameOverModal(true);
     }
   };
 
   return (
-    <SafeAreaView style={styles.areaContainer}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <View style={styles.questionContainer}>
         <Countdown
           currentQuestionIndex={currentQuestionIndex}
           onComplete={() => {
@@ -73,7 +71,9 @@ const QuizScreen = ({route, navigation}) => {
           currentQuestionIndex={currentQuestionIndex}
           questionArray={questionArray}
         />
+      </View>
 
+      <View style={styles.optionsContainer}>
         {questionArray[currentQuestionIndex]?.options.map((option, index) => (
           <Option
             data={option}
@@ -84,28 +84,37 @@ const QuizScreen = ({route, navigation}) => {
             key={index}
           />
         ))}
-        <GameOverModal
-          showGameOverModal={showGameOverModal}
-          score={score}
-          questionArray={questionArray}
-          navigation={navigation}
-        />
       </View>
-    </SafeAreaView>
+
+      <GameOverModal
+        showGameOverModal={showGameOverModal}
+        score={score}
+        questionArray={questionArray}
+        navigation={navigation}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  areaContainer: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
   container: {
     flex: 1,
-    paddingVertical: 40,
-    paddingHorizontal: 16,
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.white,
     position: 'relative',
+    paddingTop: 40,
+  },
+  questionContainer: {
+    flex: 2,
+    alignItems: 'center',
+    backgroundColor: Colors.white,
+    paddingHorizontal: 16,
+  },
+  optionsContainer: {
+    flex: 3,
+    borderRadius: 16,
+    backgroundColor: Colors.background,
+    paddingTop: 42,
+    paddingHorizontal: 16,
   },
 });
 
