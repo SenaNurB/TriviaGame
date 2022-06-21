@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
     position: 'relative',
-    paddingTop: 40,
+    paddingTop: 50,
   },
   questionContainer: {
     flex: 2,
