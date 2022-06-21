@@ -7,9 +7,16 @@ import Button from '../components/Button';
 import TriviaCategories from '../utils/TriviaCategories';
 import Difficulty from '../utils/Difficulty';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [difficulty, setDifficulty] = useState('easy');
   const [category, setCategory] = useState(9);
+
+  const handleClick = () => {
+    navigation.navigate('Quiz', {
+      category: category,
+      difficulty: difficulty,
+    });
+  };
 
   return (
     <SafeAreaView style={styles.area}>
@@ -25,7 +32,7 @@ const HomeScreen = () => {
           setValue={setCategory}
           items={TriviaCategories}
         />
-        <Button title="Start" />
+        <Button title="Start" onPress={handleClick} />
       </View>
     </SafeAreaView>
   );
