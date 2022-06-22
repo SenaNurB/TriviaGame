@@ -11,6 +11,8 @@ import Countdown from '../components/Countdown';
 import useQuestions from '../api/useQuestions';
 import QuestionsArray from '../utils/QuestionsArray';
 
+import {storeData} from '../storage';
+
 import {Colors} from '../utils/Colors';
 
 const QuizScreen = ({route, navigation}) => {
@@ -48,11 +50,13 @@ const QuizScreen = ({route, navigation}) => {
       }, 1000);
     } else {
       setTimeout(() => {
+        storeData(score);
         setShowGameOverModal(true);
       }, 1000);
     }
 
     if (currentQuestionIndex === questionArray.length - 1) {
+      storeData(score);
       setShowGameOverModal(true);
     }
   };
@@ -63,6 +67,7 @@ const QuizScreen = ({route, navigation}) => {
         <Countdown
           currentQuestionIndex={currentQuestionIndex}
           onComplete={() => {
+            storeData(score);
             setShowGameOverModal(true);
           }}
         />
